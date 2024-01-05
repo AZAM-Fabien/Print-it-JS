@@ -21,13 +21,30 @@ const slides = [
 let dots = document.querySelector(".dots");
 let slide_number = slides.length;
 
-for (let i = 0; i < slide_number; i++) {
-  let new_dots = `
+// for (let i = 0; i < slide_number; i++) {
+//   let new_dot = `
+//     <div class="dot">
+//     </div>
+//     `;
+//   dots.innerHTML += new_dot;
+// }
+
+// fonction identique que la précédente
+
+slides.forEach(() => {
+  let new_dot = `
     <div class="dot">
     </div>
     `;
-  dots.innerHTML += new_dots;
-}
+  dots.innerHTML += new_dot;
+
+  // fonction identique
+
+  // let new_dot = document.createElement("div")
+  // new_dot.classList.add("dot");
+  // let dots = document.querySelector(".dots")
+  // dots.appendChild(new_dot)
+});
 
 let banner_img = document.querySelector(".banner-img");
 let tagLine = document.getElementById("tagLine");
@@ -61,7 +78,7 @@ let arrow_right = document.getElementById("arrow_right");
 arrow_right.addEventListener("click", function () {
   if (slide_visible === last_slide) {
     slide_visible = 0;
-    previous_slide = 3;
+    previous_slide = last_slide;
   } else {
     slide_visible += 1;
     previous_slide = slide_visible - 1;
@@ -74,4 +91,5 @@ arrow_right.addEventListener("click", function () {
 
   console.log("Vous avez cliqué sur la fleche droite");
   console.log(slide_visible + " " + previous_slide);
+  console.log(slides[slide_visible].tagLine);
 });
